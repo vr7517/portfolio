@@ -3,12 +3,51 @@ import Header from './components/Header'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-     <Header/>
-     
+      <Header />
+      <div className="flex h-screen bg-darkbg dark:bg-white text-white dark:text-black overflow-hidden transition-all duration-300 ">
+        {/* Main Content Area */}
+        <div className="flex-1 relative flex flex-col overflow-hidden ">
+          {/* Scrollable Page Content */}
+          <div className="flex-1 overflow-y-auto px-6 space-y-10 scrollbar-hide">
+            {/* Section: Home */}
+            <section id="home">
+              <div className="h-screen w-11/12 mx-auto flex justify-center items-center border border-dashed border-gray-600 rounded-lg shadow p-8 dark:border-gray-300 ">
+                <h2 className="text-4xl font-bold">Home</h2>
+              </div>
+            </section>
+
+            {/* Section: About */}
+            <section id="about">
+              <div className="h-screen w-11/12 mx-auto flex justify-center items-center border border-dashed border-gray-600 rounded-lg shadow p-8 dark:border-gray-300">
+                <h2 className="text-4xl font-bold">About</h2>
+              </div>
+            </section>
+
+            {/* Section: Skills */}
+            <section id="skills">
+              <div className="h-screen w-11/12 mx-auto flex justify-center items-center border border-dashed border-gray-600 rounded-lg shadow p-8 dark:border-gray-300">
+                <h2 className="text-4xl font-bold">Skills</h2>
+              </div>
+            </section>
+
+            {/* Section: Projects */}
+            <section id="projects">
+              <div className="h-screen w-11/12 mx-auto flex justify-center items-center border border-dashed border-gray-600 rounded-lg shadow p-8 dark:border-gray-300">
+                <h2 className="text-4xl font-bold">Projects</h2>
+              </div>
+            </section>
+
+            {/* Section: Contact */}
+            <section id="contact">
+              <div className="h-screen w-11/12 mx-auto flex justify-center items-center border border-dashed border-gray-600 rounded-lg shadow p-8 dark:border-gray-300">
+                <h2 className="text-4xl font-bold">Contact</h2>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
