@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Header from './components/Header'
+import Home from './components/Home'
 import './App.css'
+import About from './components/About'
 
 function App() {
   return (
@@ -12,18 +14,11 @@ function App() {
           {/* Scrollable Page Content */}
           <div className="flex-1 overflow-y-auto px-6 space-y-10 scrollbar-hide">
             {/* Section: Home */}
-            <section id="home">
-              <div className="h-screen w-11/12 mx-auto flex justify-center items-center border border-dashed border-gray-600 rounded-lg shadow p-8 dark:border-gray-300 ">
-                <h2 className="text-4xl font-bold">Home</h2>
-              </div>
-            </section>
+          
+<Home/>
 
-            {/* Section: About */}
-            <section id="about">
-              <div className="h-screen w-11/12 mx-auto flex justify-center items-center border border-dashed border-gray-600 rounded-lg shadow p-8 dark:border-gray-300">
-                <h2 className="text-4xl font-bold">About</h2>
-              </div>
-            </section>
+<About/>
+         
 
             {/* Section: Skills */}
             <section id="skills">
