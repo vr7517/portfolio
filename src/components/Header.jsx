@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [darkMode, setDarkMode] = useState(true)
+  const [darkMode, setDarkMode] = useState(false)
     const [scrolled, setScrolled] = useState(false)
 
   const toggleMenu = () => setMenuOpen(!menuOpen)
@@ -25,6 +25,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  
   
   return (
     <header className="bg-headerbg dark:bg-white text-white dark:text-black  sticky top-0 z-50">
