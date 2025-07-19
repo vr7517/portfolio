@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Home from './components/Home'
 import './App.css'
 import About from './components/About'
+import Project from './components/Project'
 
 function App() {
   return (
@@ -24,11 +25,7 @@ function App() {
             </section>
 
             {/* Section: Projects */}
-            <section id="projects">
-              <div className="h-screen w-11/12 mx-auto flex justify-center items-center border border-dashed border-gray-600 rounded-lg shadow p-8 dark:border-gray-300">
-                <h2 className="text-4xl font-bold">Projects</h2>
-              </div>
-            </section>
+           <Project/>
 
             {/* Section: Contact */}
             <section id="contact">
