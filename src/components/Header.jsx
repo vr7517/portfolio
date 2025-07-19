@@ -26,6 +26,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+
   // Close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {

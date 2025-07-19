@@ -3,13 +3,17 @@ import Header from './components/Header'
 import Home from './components/Home'
 import './App.css'
 import About from './components/About'
+
+import Skills from './components/Skills'
+
 import Project from './components/Project'
+
 
 function App() {
   return (
     <>
       <Header />
-      <div className="flex h-screen bg-darkbg dark:bg-gray-50 text-white dark:text-black overflow-hidden transition-all duration-300 ">
+      <div className="flex h-screen bg-gradient-to-b from-gray-900 to-black dark:bg-white text-white dark:text-black overflow-hidden transition-all duration-300 ">
         {/* Main Content Area */}
         <div className="flex-1 relative flex flex-col overflow-hidden ">
           {/* Scrollable Page Content */}
@@ -18,11 +22,7 @@ function App() {
 <Home/>
 <About/>
             {/* Section: Skills */}
-            <section id="skills">
-              <div className="h-screen w-11/12 mx-auto flex justify-center items-center border border-dashed border-gray-600 rounded-lg shadow p-8 dark:border-gray-300">
-                <h2 className="text-4xl font-bold">Skills</h2>
-              </div>
-            </section>
+            <Skills/>
 
             {/* Section: Projects */}
            <Project/>
