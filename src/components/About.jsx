@@ -6,11 +6,11 @@ export default function About() {
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-16  rounded-lg  p-6 md:p-8  transition-all duration-300">
         
         {/* Left Image Section */}
-        <div className="max-w-96 rounded-full overflow-hidden shadow-[0_0_30px_#f97316]">
+        <div className="w-full rounded-full overflow-hidden shadow-[0_0_30px_#f97316]">
           <img
-            src="/WhatsApp Image 2024-01-09 at 14.17.22_7c7d09f1.jpg"
+            src="/person1.png"
             alt="Profile"
-            className="w-full h-full object-cover rounded-full border-4 border-orange"
+            className="max-w-xl h-full object-cover rounded-full border-4 border-orange"
           />
         </div>
 
