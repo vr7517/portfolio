@@ -146,14 +146,14 @@ function ProjectCard({ project, onOpen }) {
     <button
       type="button"
       onClick={() => onOpen(project)}
-      className="group text-left w-full bg-gray-800/60 dark:bg-gray-200 rounded-xl overflow-hidden shadow
-                 hover:shadow-xl hover:scale-[1.02] transition transform border border-transparent hover:border-[#f97316]"
+      className="group text-left w-full  rounded-xl overflow-hidden shadow
+                 hover:shadow-xl hover:scale-[1.02] transition transform border border-gray-300 dark:border-gray-800 hover:border-[#f97316]"
     >
       <div className="relative">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-48 object-cover"
+          className="w-full max-h-48 object-cover rounded-xl p-1"
           loading="lazy"
         />
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition flex items-center justify-center bg-black/60 text-[#f97316] text-sm font-medium">
@@ -161,7 +161,7 @@ function ProjectCard({ project, onOpen }) {
         </div>
       </div>
       <div className="p-4">
-        <h3 className="text-lg font-semibold text-gray-100 dark:text-gray-800">
+        <h3 className="text-lg font-semibold text-gray-600 dark:text-gray-200">
           {project.title}
         </h3>
         <p className="text-xs mt-1 text-gray-400 dark:text-gray-600">{project.date}</p>
@@ -304,9 +304,9 @@ export default function Project() {
   return (
     <section
       id="projects"
-      className="py-24 bg-darkbg text-white dark:bg-gray-50 dark:text-black"
+      className="py-24  text-white dark:text-black"
     >
-      <div className="w-11/12 max-w-7xl mx-auto">
+      <div className="w-11/12 max-w-6xl mx-auto">
         <div className="flex items-center gap-4 mb-4">
             <div className="w-px h-10 bg-gray-400"></div>
             <span className="text-lg tracking-widest uppercase text-gray-400">Projects</span>
@@ -327,7 +327,7 @@ export default function Project() {
                   ${
                     isActive
                       ? "bg-[#f97316] text-white"
-                      : "bg-gray-800/60 text-gray-200 hover:bg-[#f97316] hover:text-white dark:bg-gray-200 dark:text-gray-700 dark:hover:bg-[#f97316] dark:hover:text-white"
+                      : "bg-gray-100 text-gray-600 hover:bg-[#f97316] hover:text-white dark:bg-gray-100 dark:text-gray-700 dark:hover:bg-[#f97316] dark:hover:text-white border border-gray-400"
                   }`}
               >
                 {c.label}

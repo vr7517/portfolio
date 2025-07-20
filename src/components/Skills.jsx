@@ -1,4 +1,6 @@
-import React, { useState,useEffect } from "react";
+// Add at the top of your component to use screen width
+import { useEffect, useState } from "react";
+
 import HTML5 from "../assets/logos/HTML5.png"
 import CSS3 from "../assets/logos/CSS3.png"
 import Angular from "../assets/logos/Angular.png"
@@ -88,7 +90,7 @@ const tools = [
   { icon: <img src={Redis} alt="Redis" className="h-12 w-12 object-contain" />, label: "Redis" },
   { icon: <img src={Vscode} alt="VsCode" className="h-12 w-12 object-contain" />, label: "VsCode" },
   { icon: <img src={Gitlab} alt="Gitlab" className="h-12 w-12 object-contain" />, label: "Gitlab" },
-  
+
 ];
 
 export default function Skills() {
@@ -96,7 +98,7 @@ export default function Skills() {
   const [activeSubSkill, setActiveSubSkill] = useState("frontend");
 
   const [selectedItem, setSelectedItem] = useState(categorizedSkills["frontend"][0]);
-// default to first skill
+  // default to first skill
 
   // 👉 Immediately update center icon when tab changes
   useEffect(() => {
@@ -129,115 +131,120 @@ export default function Skills() {
 
 
   return (
-    <div className=" text-white py-12 px-4 min-h-screen flex items-center justify-center">
-      <div className="max-w-7xl w-full flex flex-col md:flex-row items-start md:items-center gap-12">
-        {/* Left Content */}
-        <div className="md:w-1/2">
-          <div className="text-sm uppercase tracking-widest text-gray-400 mb-2 rotate-[-90deg] md:rotate-0 md:mb-4">
-            My Skills
-          </div>
-          <h2 className="text-4xl md:text-4xl dark:text-black font-bold mb-4 leading-snug">
-            What My <br /> Programming Skills <br /> Included?
-          </h2>
-          <p className="text-gray-400 dark:text-gray-700 text-2xl mb-6">
-            I develop simple, intuitive and responsive user interface that helps users get things done with less effort and time with those technologies.
-          </p>
+    <section id="home">
+      <div className="relative min-h-screen flex items-center justify-center text-center px-4 sm:px-6 lg:px-10 text-white overflow-hidden">
+        <div className="max-w-6xl w-full flex flex-col lg:flex-row items-start lg:items-center gap-8 md:gap-12">
 
-          <div className="relative inline-flex p-1 m-1 bg-headerbg rounded-full shadow-xl w-max">
-            {/* Sliding background pill */}
-            <div
-              className={`absolute h-[calc(100%-0.5rem)] w-24 mx-1 bg-orange rounded-full transition-all duration-300 ease-in-out ${activeTab === "tools" ? "translate-x-full" : "translate-x-0"
-                }`}
-            ></div>
-
-            {/* Tab Buttons */}
-            <button
-              onClick={() =>
-                setActiveTab((prev) => (prev === "skills" ? "tools" : "skills"))
-              }
-              className={`relative z-10 px-2 py-2 rounded-full font-bold w-24 transition-colors duration-300 ${activeTab === "skills" ? "text-white" : "text-gray-300"
-                }`}
-            >
-              Skills
-            </button>
-            <button
-              onClick={() =>
-                setActiveTab((prev) => (prev === "tools" ? "skills" : "tools"))
-              }
-              className={`relative z-10 px-2 py-2 rounded-full font-bold w-24 transition-colors duration-300 ${activeTab === "tools" ? "text-white" : "text-gray-300"
-                }`}
-            >
-              Tools
-            </button>
-          </div>
-          <AnimatePresence>
-            {activeTab === "skills" && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.4 }}
-                className="overflow-hidden mt-4"
-              >
-                <div className="flex flex-wrap gap-3 text-sm font-semibold text-white">
-                  {["frontend", "backend", "databases", "frameworks"].map((key) => (
-                    <button
-                      key={key}
-                      onClick={() => setActiveSubSkill(key)}
-                      className={`px-4 py-1 text-lg rounded-full transition-all duration-400 font-semibold border ${activeSubSkill === key ? "bg-orange text-white" : "border-gray-500"
-                        }`}
-                    >
-                      {key.charAt(0).toUpperCase() + key.slice(1).replace("_", " ")}
-                    </button>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-        </div>
-
-        {/* Right Content */}
-        {/* Right Content */}
-        <div className="relative w-[min(100vw,100vh)] h-[min(80vw,80vh)] mx-auto flex items-center justify-center">
-          {/* Donut Ring Icons */}
-          {donutItems.map((item, index) => {
-            const angle = (360 / donutItems.length) * index;
-            const x = radius * Math.cos((angle * Math.PI) / 180);
-            const y = radius * Math.sin((angle * Math.PI) / 180);
-            const isSelected = selectedItem.label === item.label;
-
-            return (
-              <div
-                key={index}
-                onMouseEnter={() => setSelectedItem(item)}
-                className={`absolute cursor-pointer transition-all duration-300 ease-in-out hover:scale-110`}
-                style={{
-                  top: `calc(50% + ${y}px - ${iconSize / 2}px)`,
-                  left: `calc(50% + ${x}px - ${iconSize / 2}px)`,
-                }}
-              >
-                <div className={`rounded-full p-2 shadow-md ${isSelected ? "ring-2 ring-orange-400" : "bg-headerbg"}`}>
-                  {item.icon}
-                </div>
-              </div>
-            );
-          })}
-
-          {/* Center Display */}
-          <motion.div
-            key={selectedItem.label}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="flex items-center justify-center w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-white drop-shadow-lg shadow-2xl dark:bg-zinc-900 transition-all"
-          >
-            <div className="text-6xl  text-blue-600 dark:text-white">
-              {selectedItem.icon}
+          {/* Left Content */}
+          <div className="md:w-1/2 text-center md:text-left">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-px h-10 bg-gray-400"></div>
+              <span className="text-lg tracking-widest uppercase text-gray-400">Skills</span>
             </div>
-          </motion.div>
+            <h2 className="h1">
+              What My <br /> Programming Skills <br /> Included?
+            </h2>
+            <p className="text-base sm:text-lg md:text-2xl text-gray-400 dark:text-gray-700 mb-6">
+              I develop simple, intuitive and responsive user interface that helps users get things done with less effort and time with those technologies.
+            </p>
+
+            <div className="relative inline-flex p-1 m-1 bg-headerbg rounded-full shadow-xl w-max ">
+              {/* Sliding background pill */}
+              <div
+                className={`absolute h-[calc(100%-0.5rem)] w-24 mx-1 bg-orange rounded-full transition-all duration-300 ease-in-out ${activeTab === "tools" ? "translate-x-full" : "translate-x-0"
+                  }`}
+              ></div>
+
+              {/* Tab Buttons */}
+              <button
+                onClick={() =>
+                  setActiveTab((prev) => (prev === "skills" ? "tools" : "skills"))
+                }
+                className={`relative z-10 px-2 py-2 rounded-full font-bold w-24  transition-colors duration-300 ${activeTab === "skills" ? "text-white" : "text-gray-300"
+                  }`}
+              >
+                Skills
+              </button>
+              <button
+                onClick={() =>
+                  setActiveTab((prev) => (prev === "tools" ? "skills" : "tools"))
+                }
+                className={`relative z-10 px-2 py-2 rounded-full font-bold w-24 transition-colors duration-300 ${activeTab === "tools" ? "text-white" : "text-gray-300"
+                  }`}
+              >
+                Tools
+              </button>
+            </div>
+            <AnimatePresence>
+              {activeTab === "skills" && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="overflow-hidden mt-4"
+                >
+                  <div className="flex flex-wrap gap-3 text-sm font-semibold text-gray-800 dark:text-gray-200">
+                    {["frontend", "backend", "databases", "frameworks"].map((key) => (
+                      <button
+                        key={key}
+                        onClick={() => setActiveSubSkill(key)}
+                        className={`px-4 py-1 text-lg rounded-full transition-all duration-400 font-semibold border ${activeSubSkill === key ? "bg-orange text-white" : "border-gray-500"
+                          }`}
+                      >
+                        {key.charAt(0).toUpperCase() + key.slice(1).replace("_", " ")}
+                      </button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+          </div>
+
+          {/* Right Content */}
+          {/* Right Content */}
+          <div className="relative w-[min(90vw,90vh)] h-[min(70vw,70vh)] sm:w-[450px] sm:h-[450px] mx-auto flex items-center justify-center ">
+
+            {/* Donut Ring Icons */}
+            {donutItems.map((item, index) => {
+              const angle = (360 / donutItems.length) * index;
+              const x = radius * Math.cos((angle * Math.PI) / 180);
+              const y = radius * Math.sin((angle * Math.PI) / 180);
+              const isSelected = selectedItem.label === item.label;
+
+              return (
+                <div
+                  key={index}
+                  onMouseEnter={() => setSelectedItem(item)}
+                  className={`absolute cursor-pointer transition-all duration-300 ease-in-out hover:scale-110`}
+                  style={{
+                    top: `calc(50% + ${y}px - ${iconSize / 2}px)`,
+                    left: `calc(50% + ${x}px - ${iconSize / 2}px)`,
+                  }}
+                >
+                  <div className={`rounded-full p-2 shadow-md ${isSelected ? "ring-2 ring-orange-400" : "bg-headerbg"}`}>
+                    {item.icon}
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* Center Display */}
+            <motion.div
+              key={selectedItem.label}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className="flex items-center justify-center w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-white drop-shadow-lg shadow-2xl dark:bg-zinc-900 transition-all"
+            >
+              <div className="text-6xl  text-blue-600 dark:text-white">
+                {selectedItem.icon}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
