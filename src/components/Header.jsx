@@ -4,6 +4,8 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [darkMode, setDarkMode] = useState(true)
   const [scrolled, setScrolled] = useState(false)
+  const [showHeader, setShowHeader] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
   const [language, setLanguage] = useState("EN")
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const dropdownRef = useRef(null)
@@ -12,6 +14,7 @@ export default function Header() {
   const toggleDarkMode = () => setDarkMode(!darkMode)
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen)
 
+  // Apply dark mode class
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark")
@@ -20,12 +23,21 @@ export default function Header() {
     }
   }, [darkMode])
 
+  // Handle scroll hide/show header
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      if (currentScrollY > lastScrollY && currentScrollY > 60) {
+        setShowHeader(false) // hide on scroll down
+      } else {
+        setShowHeader(true) // show on scroll up
+      }
+      setLastScrollY(currentScrollY)
+    }
+
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
+  }, [lastScrollY])
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -39,29 +51,31 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="bg-darkbg dark:bg-gray-50 text-white dark:text-black sticky top-0 z-50">
+    <header className={`bg-white dark:bg-gray-900 font-jetbrains sticky top-0 z-50 transition-transform duration-300
+      ${showHeader ? 'translate-y-0' : '-translate-y-full'}` }>
+      
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
-        <h1 className="text-2xl font-bold">Logo</h1>
+        <h1 className="text-2xl font-bold text-black dark:text-white">Logo</h1>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex space-x-6 items-center">
-          <a href="#home" className="hover:text-orange text-gray-400">Home</a>
-          <a href="#about" className="hover:text-orange text-gray-400">About</a>
-          <a href="#skills" className="hover:text-orange text-gray-400">Skills</a>
-          <a href="#projects" className="hover:text-orange text-gray-400">Projects</a>
-          <a href="#contact" className="hover:text-orange text-gray-400">Contact</a>
-
-         
+          {['home', 'about', 'skills', 'projects', 'contact'].map((item) => (
+            <a key={item}
+              href={`#${item}`}
+              className="text-gray-700 dark:text-gray-300 hover:text-orange dark:hover:text-orange transition">
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </a>
+          ))}
         </nav>
 
-<div className="flex justify-center items-center">
- {/* Language Dropdown */}
+        <div className="flex justify-center items-center">
+          {/* Language Dropdown */}
           <div className="relative ml-4" ref={dropdownRef}>
             <button
               onClick={toggleDropdown}
-              className="flex items-center gap-1  px-3 py-1 rounded text-sm  hover:text-gray-700 transition"
+              className="flex items-center gap-1 px-3 py-1 rounded text-sm text-black dark:text-white hover:text-orange"
             >
-            {language} ▼
+              {language} ▼
             </button>
             {dropdownOpen && (
               <div className="absolute right-0 mt-2 bg-white text-black border rounded shadow-lg z-20">
@@ -72,7 +86,7 @@ export default function Header() {
                       setLanguage(lang)
                       setDropdownOpen(false)
                     }}
-                    className="px-4 py-2 hover:bg-gray-50 cursor-pointer"
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
                   >
                     {lang === "EN" && "English"}
                     {lang === "HI" && "हिन्दी"}
@@ -82,22 +96,22 @@ export default function Header() {
               </div>
             )}
           </div>
-        {/* Dark Mode Toggle */}
-        <div
-          onClick={toggleDarkMode}
-          className={`w-12 h-6 flex items-center rounded-full p-1 cursor-pointer transition-colors duration-300 
-              ${darkMode ? 'bg-gray-50' : 'bg-orange'}`}
-        >
+
+          {/* Dark Mode Toggle */}
           <div
-            className={`dark:bg-orange bg-gray-50 w-4 h-4 rounded-full shadow-md transform duration-300 ease-in-out
-                ${darkMode ? 'translate-x-6' : 'translate-x-0'}`}
-          ></div>
+            onClick={toggleDarkMode}
+            className={`w-12 h-6 flex items-center rounded-full p-1 cursor-pointer transition-colors duration-300 
+              ${darkMode ? 'bg-gray-200' : 'bg-orange'}`}
+          >
+            <div
+              className={`w-4 h-4 rounded-full shadow-md transform duration-300 ease-in-out
+                ${darkMode ? 'translate-x-6 bg-orange' : 'translate-x-0 bg-white'}`}
+            ></div>
+          </div>
         </div>
-</div>
-        
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden ml-3" onClick={toggleMenu}>
+        <button className="md:hidden ml-3 text-black dark:text-white" onClick={toggleMenu}>
           <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round"
               d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
@@ -107,12 +121,14 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <nav className="md:hidden px-4 pb-4 space-y-2">
-          <a href="#home" className="block hover:text-orange">Home</a>
-          <a href="#about" className="block hover:text-orange">About</a>
-          <a href="#skills" className="block hover:text-orange">Skills</a>
-          <a href="#projects" className="block hover:text-orange">Projects</a>
-          <a href="#contact" className="block hover:text-orange">Contact</a>
+        <nav className="md:hidden px-4 pb-4 space-y-2 bg-white dark:bg-gray-900 text-black dark:text-white">
+          {['home', 'about', 'skills', 'projects', 'contact'].map((item) => (
+            <a key={item}
+              href={`#${item}`}
+              className="block hover:text-orange dark:hover:text-orange">
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </a>
+          ))}
         </nav>
       )}
     </header>

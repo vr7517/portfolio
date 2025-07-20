@@ -5,9 +5,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+     fontFamily: {
+        sans: ['"JetBrains Mono"', 'ui-sans-serif', 'system-ui'], // Replace default sans
+        jetbrains: ['"JetBrains Mono"', 'monospace'], // Optional: custom name
+      },
       colors: {
         headerbg: "#151b23", 
-        darkbg:"#212830",      // Custom dark background
+        darkbg:"bg-gradient-to-b from-gray-800 to-gray-950",      // Custom dark background
         orange: "#f97316",         // Tailwind orange-500
       },
       keyframes: {
