@@ -6,6 +6,7 @@ import './App.css'
 import About from './components/About'
 import Skills from './components/Skills'
 import Project from './components/Project'
+import Contact from "./components/Contact";
 
 
 function App() {
@@ -24,13 +25,14 @@ function App() {
           <About />
           <Skills />
           <Project />
+          <Contact/>
 
           {/* Contact Section */}
-          <section id="contact" className="w-full">
+          {/* <section id="contact" className="w-full">
             <div className="min-h-[80vh] w-full mx-auto flex justify-center items-center border border-dashed border-gray-600 rounded-lg shadow p-6 md:p-10 dark:border-gray-300 transition-all">
               <h2 className="text-4xl font-bold text-center">Contact</h2>
             </div>
-          </section>
+          </section> */}
         </div>
       </div>
     </div>
