@@ -51,7 +51,7 @@ export default function Header() {
   }, [])
 
   return (
-    <header className={`bg-white dark:bg-gray-900 font-jetbrains sticky top-0 z-50 transition-transform duration-300
+    <header className={`bg-white dark:bg-black font-jetbrains sticky top-0 z-50 transition-transform duration-300
       ${showHeader ? 'translate-y-0' : '-translate-y-full'}` }>
       
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">

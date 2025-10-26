@@ -12,7 +12,7 @@ import {
 export default function Contact() {
   return (
     <section id="contact" className="py-12 px-4 md:px-8">
-      <div className="max-w-6xl mx-auto flex flex-col gap-10 p-6 md:p-10 rounded-lg dark:shadow-[0_0_30px_#f97316] bg-white dark:bg-[#111] transition-all duration-300">
+      <div className="max-w-6xl mx-auto flex flex-col gap-10 p-6 md:p-10 rounded-lg transition-all duration-300">
         {/* Header */}
         <div className="text-center">
           <p className="uppercase text-gray-400 tracking-widest">Contact</p>
@@ -30,19 +30,19 @@ export default function Contact() {
           <div className="flex items-center gap-3">
             <Mail />
             <span className="text-gray-600 dark:text-gray-300">
-              harsh@example.com
+              vivekrajput1924345@gmail.com
             </span>
           </div>
           <div className="flex items-center gap-3">
             <Phone />
             <span className="text-gray-600 dark:text-gray-300">
-              +91 98765 43210
+              +91 9754799646
             </span>
           </div>
           <div className="flex items-center gap-3">
             <MapPin />
             <span className="text-gray-600 dark:text-gray-300">
-              Pune, Maharashtra
+              Jabalpur, Madhya Pradesh
             </span>
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="md:w-2/7 mx-auto flex items-center justify-center gap-2 border border-orange bg-white text-orange hover:text-white px-6 py-3 rounded-md font-semibold transition hover:bg-orange/90"
+            className="md:w-2/7 mx-auto flex items-center justify-center gap-2 border border-orange  text-orange hover:text-white px-6 py-3 rounded-md font-semibold transition hover:bg-orange/90"
           >
             <Send size={18} /> Send Message
           </button>

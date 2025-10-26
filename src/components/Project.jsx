@@ -7,116 +7,58 @@ import { FaTimes, FaExternalLinkAlt, FaCode } from "react-icons/fa";
 const projectsData = [
   {
     id: 1,
-    title: "Code-journey",
-    date: "May 2024 – Present",
-    categories: ["personal", "web"], // removed "portfolio" since using new filters
-    tech: ["JavaScript", "ReactJS", "Rest API", "NodeJS", "MongoDB", "Tailwind"],
+    title: "Eduverto",
+    date: "Mar 2025 – Present",
+    categories: ["web", "group"],
+    tech: ["ReactJS", "Laravel", "Tailwind", "MySQL"],
     description:
-      "Developing an integrated platform that consolidates the functionalities of major coding profiles into a unified dashboard. REST APIs, real‑time sync, shareable profile links, and analytics.",
-    image: "/pr1.avif",
-    live: "#",
+      "A comprehensive school management system platform handling student data, academic calendar, and teacher management.",
+    image: "/eduverto.png",
+    live: "https://eduverto.in",
     code: "#",
-    logos: [
-      "/images/logos/hackerearth.png",
-      "/images/logos/leetcode.png",
-      "/images/logos/gfg.png",
-      "/images/logos/codechef.png",
-    ],
+    logos: [],
   },
   {
     id: 2,
-    title: "HealthCare Management System",
-    date: "Jan 2024 – Apr 2024",
-    categories: ["web", "app", "group"], // <— group project? adjust if needed
-    tech: ["ReactJS", "Redux", "ExpressJS", "MongoDB"],
+    title: "Sub-G",
+    date: "Jan 2025 – Feb 2025",
+    categories: ["web", "personal"],
+    tech: ["Laravel", "Livewire", "Tailwind", "MySQL"],
     description:
-      "Full‑stack system for patient records, appointments, and state consistency across modules using Redux.",
-    image: "/p2.png",
-    live: "#",
+      "A personal project for school challenges and competition management, enabling participation tracking and leaderboards.",
+    image: "/sub-g.png",
+    live: "https://green.mavask.in",
     code: "#",
     logos: [],
   },
   {
     id: 3,
-    title: "Photography Showcase",
-    date: "2023",
-    categories: ["personal"], // photography rolls into personal? or make "group" if collab
-    tech: ["Next.js", "Tailwind", "Cloudinary"],
+    title: "YashHair",
+    date: "Apr 2025 – May 2025",
+    categories: ["web", "personal"],
+    tech: ["Laravel", "Tailwind", "Stripe API", "PHP"],
     description:
-      "Responsive gallery with dynamic image optimization, lightbox view, and category tagging.",
-    image: "/p3.webp",
-    live: "#",
+      "E-commerce platform for hair replacement and wig services including mens, womens wigs, and hair patching solutions.",
+    image: "/yash-hair.png",
+    live: "https://yashhairpatchjabalpur.com",
     code: "#",
     logos: [],
   },
   {
     id: 4,
-    title: "E-Commerce Store",
-    date: "Aug 2023 – Oct 2023",
-    categories: ["web", "group"], // likely team
-    tech: ["ReactJS", "Redux Toolkit", "Stripe API", "Firebase"],
-    description:
-      "Full-featured e-commerce platform with real-time inventory, payment gateway, and admin dashboard.",
-    image: "/p4.webp",
-    live: "#",
-    code: "#",
-    logos: [],
-  },
-  {
-    id: 5,
-    title: "Task Manager App",
-    date: "Jun 2023 – Jul 2023",
-    categories: ["app", "group"], // adjust if solo
-    tech: ["React Native", "Expo", "AsyncStorage"],
-    description:
-      "Cross-platform mobile app to manage tasks with offline sync and push notifications.",
-    image: "/p5.jpeg",
-    live: "#",
-    code: "#",
-    logos: [],
-  },
-  {
-    id: 6,
-    title: "Travel Blog Platform",
-    date: "Mar 2023 – May 2023",
+    title: "Smart Hair Beauty",
+    date: "Apr 2025 – Present",
     categories: ["web", "personal"],
-    tech: ["Next.js", "Sanity CMS", "Tailwind", "Vercel"],
+    tech: ["Laravel", "Tailwind", "Stripe API", "Livewire"],
     description:
-      "SEO-optimized blogging platform with rich text editor, category filtering, and image CDN.",
-    image: "/p6.jpeg",
-    live: "#",
+      "Focused on advanced hair replacement services with online booking, product showcase, and management of wigs and hair systems.",
+    image: "/smart-hair.png",
+    live: "https://smarthairsbeauty.com",
     code: "#",
     logos: [],
   },
-  {
-    id: 7,
-    title: "Online Learning Portal",
-    date: "Dec 2022 – Feb 2023",
-    categories: ["web", "group"],
-    tech: ["ReactJS", "NodeJS", "GraphQL", "MongoDB"],
-    description:
-      "Learning platform with video streaming, quizzes, and course progress tracking.",
-    image: "/p7.png",
-    live: "#",
-    code: "#",
-    logos: [],
-  },
-  {
-    id: 8,
-    title: "Crypto Dashboard",
-    date: "Oct 2022 – Nov 2022",
-    categories: ["web", "personal"], // adjust
-    tech: ["ReactJS", "Chart.js", "Coingecko API", "Tailwind"],
-    description:
-      "Real-time cryptocurrency dashboard with price charts, news, and watchlists.",
-    image: "/p8.png",
-    live: "#",
-    code: "#",
-    logos: [],
-  },
-  
-  
 ];
+
 
 /* ------------------------------------------------------------------
    FILTERS (requested)
@@ -307,48 +249,53 @@ export default function Project() {
       className="py-24  text-white dark:text-black"
     >
       <div className="w-11/12 max-w-6xl mx-auto">
-        <div className="flex items-center gap-4 mb-4">
-            <div className="w-px h-10 bg-gray-400"></div>
-            <span className="text-lg tracking-widest uppercase text-gray-400">Projects</span>
-        </div>
-        <p className="text-left max-w-xl  text-gray-400 dark:text-gray-600 mb-10">
-          You can find all of my projects on my profile on Github.<br/> You can view my activities, contributions and code on these projects.
-        </p>
+  {/* Section Label */}
+  <div className="flex items-center gap-4 mb-4 justify-center md:justify-start">
+    <div className="w-px h-10 bg-gray-400"></div>
+    <span className="text-lg tracking-widest uppercase text-gray-400">Projects</span>
+  </div>
 
-        {/* Category Pills */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {categoryFilters.map((c) => {
-            const isActive = activeCat === c.key;
-            return (
-              <button
-                key={c.key}
-                onClick={() => setActiveCat(c.key)}
-                className={`px-4 py-2 rounded-full text-sm font-semibold transition
-                  ${
-                    isActive
-                      ? "bg-[#f97316] text-white"
-                      : "bg-gray-100 text-gray-600 hover:bg-[#f97316] hover:text-white dark:bg-gray-100 dark:text-gray-700 dark:hover:bg-[#f97316] dark:hover:text-white border border-gray-400"
-                  }`}
-              >
-                {c.label}
-              </button>
-            );
-          })}
-        </div>
+  {/* Description */}
+  <p className="text-gray-300 leading-relaxed max-w-xl mb-10 text-center md:text-left">
+    You can find all of my projects on my GitHub profile. <br /> 
+    View my activities, contributions, and code for each project.
+  </p>
 
-        {/* Scrollable Grid (≈2 rows visible before scroll) */}
-        {filteredProjects.length === 0 ? (
-          <p className="text-center text-gray-400 dark:text-gray-600">No projects found.</p>
-        ) : (
-          <div className="max-h-[670px] overflow-y-auto scrollbar-hide px-2 pt-2">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProjects.map((p) => (
-                <ProjectCard key={p.id} project={p} onOpen={setModalProject} />
-              ))}
-            </div>
-          </div>
-        )}
+  {/* Category Pills */}
+  <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-10">
+    {categoryFilters.map((c) => {
+      const isActive = activeCat === c.key;
+      return (
+        <button
+          key={c.key}
+          onClick={() => setActiveCat(c.key)}
+          className={`px-4 py-2 rounded-full text-sm font-semibold transition
+            ${
+              isActive
+                ? "bg-orange text-white"
+                : "bg-gray-100 text-gray-600 hover:bg-orange hover:text-white dark:bg-gray-100 dark:text-gray-700 dark:hover:bg-orange dark:hover:text-white border border-gray-400"
+            }`}
+        >
+          {c.label}
+        </button>
+      );
+    })}
+  </div>
+
+  {/* Projects Grid */}
+  {filteredProjects.length === 0 ? (
+    <p className="text-center text-gray-400 dark:text-gray-600">No projects found.</p>
+  ) : (
+    <div className="max-h-[670px] overflow-y-auto scrollbar-hide px-2 pt-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {filteredProjects.map((p) => (
+          <ProjectCard key={p.id} project={p} onOpen={setModalProject} />
+        ))}
       </div>
+    </div>
+  )}
+</div>
+
 
       {modalProject && (
         <ProjectModal project={modalProject} onClose={() => setModalProject(null)} />

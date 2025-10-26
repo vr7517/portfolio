@@ -5,15 +5,11 @@ module.exports = {
   ],
   theme: {
     extend: {
-     fontFamily: {
-        sans: ['"JetBrains Mono"', 'ui-sans-serif', 'system-ui'], // Replace default sans
-        jetbrains: ['"JetBrains Mono"', 'monospace'], // Optional: custom name
+      fontFamily: {
+        heading: ['Montserrat', 'sans-serif'],
+        body: ['Lato', 'sans-serif'],
       },
-      colors: {
-        headerbg: "#151b23", 
-        darkbg:"bg-gradient-to-b from-gray-800 to-gray-950",      // Custom dark background
-        orange: "#f97316",         // Tailwind orange-500
-      },
+   
       keyframes: {
         'fade-in': {
           '0%': { opacity: '0', transform: 'scale(0.95)' },

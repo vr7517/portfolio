@@ -6,7 +6,8 @@ import './App.css'
 import About from './components/About'
 import Skills from './components/Skills'
 import Project from './components/Project'
-import Contact from "./components/Contact";
+import Contact from "./components/Contact"
+
 
 
 function App() {
@@ -14,13 +15,14 @@ function App() {
   <>
   
     <Header />
-    <div className="min-h-screen flex flex-col bg-gradient-to-b dark:from-gray-900 dark:to-gray-950 from-white to-white text-black dark:text-white transition-all duration-300 font-jetbrains-mono">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-black  text-black dark:text-white transition-all duration-300 font-jetbrains-mono">
       
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col overflow-hidden">
         
         {/* Scrollable Page Content */}
         <div className="flex-1 overflow-y-auto px-4 md:px-6 py-6 space-y-16 scrollbar-hide">
+          {/* <GsapTest /> */}
           <Home />
           <About />
           <Skills />

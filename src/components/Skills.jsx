@@ -131,76 +131,90 @@ export default function Skills() {
 
 
   return (
-    <section id="home">
+    <section id="skills">
       <div className="relative min-h-screen flex items-center justify-center text-center px-4 sm:px-6 lg:px-10 text-white overflow-hidden">
         <div className="max-w-6xl w-full flex flex-col lg:flex-row items-start lg:items-center gap-8 md:gap-12">
 
           {/* Left Content */}
           <div className="md:w-1/2 text-center md:text-left">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-px h-10 bg-gray-400"></div>
-              <span className="text-lg tracking-widest uppercase text-gray-400">Skills</span>
-            </div>
-            <h2 className="h1">
-              What My <br /> Programming Skills <br /> Included?
-            </h2>
-            <p className="text-base sm:text-lg md:text-2xl text-gray-400 dark:text-gray-700 mb-6">
-              I develop simple, intuitive and responsive user interface that helps users get things done with less effort and time with those technologies.
-            </p>
+  {/* Section Label */}
+  <div className="flex items-center gap-4 mb-4 justify-center md:justify-start">
+    <div className="w-px h-10 bg-gray-400"></div>
+    <span className="text-lg tracking-widest uppercase text-gray-400">Skills</span>
+  </div>
 
-            <div className="relative inline-flex p-1 m-1 bg-headerbg rounded-full shadow-xl w-max ">
-              {/* Sliding background pill */}
-              <div
-                className={`absolute h-[calc(100%-0.5rem)] w-24 mx-1 bg-orange rounded-full transition-all duration-300 ease-in-out ${activeTab === "tools" ? "translate-x-full" : "translate-x-0"
-                  }`}
-              ></div>
+  {/* Section Heading */}
+  <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-4 text-black dark:text-white">
+    What My <br /> Programming Skills <br /> Include
+  </h2>
 
-              {/* Tab Buttons */}
-              <button
-                onClick={() =>
-                  setActiveTab((prev) => (prev === "skills" ? "tools" : "skills"))
-                }
-                className={`relative z-10 px-2 py-2 rounded-full font-bold w-24  transition-colors duration-300 ${activeTab === "skills" ? "text-white" : "text-gray-300"
-                  }`}
-              >
-                Skills
-              </button>
-              <button
-                onClick={() =>
-                  setActiveTab((prev) => (prev === "tools" ? "skills" : "tools"))
-                }
-                className={`relative z-10 px-2 py-2 rounded-full font-bold w-24 transition-colors duration-300 ${activeTab === "tools" ? "text-white" : "text-gray-300"
-                  }`}
-              >
-                Tools
-              </button>
-            </div>
-            <AnimatePresence>
-              {activeTab === "skills" && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="overflow-hidden mt-4"
-                >
-                  <div className="flex flex-wrap gap-3 text-sm font-semibold text-gray-800 dark:text-gray-200">
-                    {["frontend", "backend", "databases", "frameworks"].map((key) => (
-                      <button
-                        key={key}
-                        onClick={() => setActiveSubSkill(key)}
-                        className={`px-4 py-1 text-lg rounded-full transition-all duration-400 font-semibold border ${activeSubSkill === key ? "bg-orange text-white" : "border-gray-500"
-                          }`}
-                      >
-                        {key.charAt(0).toUpperCase() + key.slice(1).replace("_", " ")}
-                      </button>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+  {/* Description */}
+  <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+    I develop simple, intuitive, and responsive user interfaces that help users get things done with less effort and time. My full stack expertise includes <strong>React, Laravel, Tailwind CSS, Node.js, and MySQL</strong>, along with modern development tools and frameworks.
+  </p>
 
-          </div>
+  {/* Tabs */}
+  <div className="relative inline-flex p-1 m-1 bg-headerbg rounded-full shadow-xl w-max mb-6">
+    {/* Sliding background pill */}
+    <div
+      className={`absolute h-[calc(100%-0.5rem)] w-24 mx-1 bg-orange rounded-full transition-all duration-300 ease-in-out ${
+        activeTab === "tools" ? "translate-x-full" : "translate-x-0"
+      }`}
+    ></div>
+
+    {/* Tab Buttons */}
+    <button
+      onClick={() =>
+        setActiveTab((prev) => (prev === "skills" ? "tools" : "skills"))
+      }
+      className={`relative z-10 px-4 py-2 rounded-full font-bold w-24  transition-colors duration-300 ${
+        activeTab === "skills" ? "text-white " : "text-gray-300"
+      }`}
+    >
+      Skills
+    </button>
+    <button
+      onClick={() =>
+        setActiveTab((prev) => (prev === "tools" ? "skills" : "tools"))
+      }
+      className={`relative z-10 px-4 py-2 rounded-full font-bold w-24 transition-colors duration-300 ${
+        activeTab === "tools" ? "text-white" : "text-gray-300"
+      }`}
+    >
+      Tools
+    </button>
+  </div>
+
+  {/* Animated Skills / Tools Content */}
+  <AnimatePresence>
+    {activeTab === "skills" && (
+      <motion.div
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ height: "auto", opacity: 1 }}
+        exit={{ height: 0, opacity: 0 }}
+        transition={{ duration: 0.4 }}
+        className="overflow-hidden mt-4"
+      >
+        <div className="flex flex-wrap gap-3 text-sm font-semibold text-gray-800 dark:text-gray-100">
+          {["frontend", "backend", "databases", "frameworks"].map((key) => (
+            <button
+              key={key}
+              onClick={() => setActiveSubSkill(key)}
+              className={`px-4 py-1 text-lg rounded-full transition-all duration-400 font-semibold border ${
+                activeSubSkill === key
+                  ? "bg-orange text-white"
+                  : "border-gray-800"
+              }`}
+            >
+              {key.charAt(0).toUpperCase() + key.slice(1).replace("_", " ")}
+            </button>
+          ))}
+        </div>
+      </motion.div>
+    )}
+  </AnimatePresence>
+</div>
+
 
           {/* Right Content */}
           {/* Right Content */}
