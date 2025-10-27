@@ -11,8 +11,10 @@ import {
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-12 px-4 md:px-8">
-      <div className="max-w-6xl mx-auto flex flex-col gap-10 p-6 md:p-10 rounded-lg transition-all duration-300">
+    <section id="contact"    className="relative min-h-screen  text-center px-4 sm:mx-8 sm:px-6 lg:px-10 text-white overflow-hidden border border-dashed border-neutral-200 dark:border-neutral-700 ">
+    
+     <div className="max-w-6xl w-full mx-auto py-12 items-center space-y-3 gap-8 md:gap-12">
+        
         {/* Header */}
         <div className="text-center">
           <p className="uppercase text-gray-400 tracking-widest">Contact</p>
@@ -46,7 +48,7 @@ export default function Contact() {
             </span>
           </div>
         </div>
-        <div className="flex justify-start gap-6  text-xl sm:flex-justify-center">
+        <div className="flex justify-start gap-6 p-4 text-xl sm:flex-justify-center">
           <div className="flex gap-6 justify-center mt-4">
             {/* Facebook */}
             <div className="relative group">

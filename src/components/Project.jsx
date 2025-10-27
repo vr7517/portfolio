@@ -246,9 +246,9 @@ export default function Project() {
   return (
     <section
       id="projects"
-      className="py-24  text-white dark:text-black"
-    >
-      <div className="w-11/12 max-w-6xl mx-auto">
+         className="relative min-h-screen text-center px-4 sm:mx-8 sm:px-6 lg:px-10 text-white overflow-hidden border border-dashed border-neutral-200 dark:border-neutral-700 ">
+    
+     <div className="max-w-6xl mx-auto lg:items-center gap-8 md:gap-12 py-12">
   {/* Section Label */}
   <div className="flex items-center gap-4 mb-4 justify-center md:justify-start">
     <div className="w-px h-10 bg-gray-400"></div>

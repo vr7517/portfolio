@@ -59,24 +59,24 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="relative py-20"
-    >
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-16 rounded-lg p-6 md:p-8 transition-all duration-300">
+         className="relative min-h-screen flex items-center justify-center text-center  sm:px-4 sm:mx-8  lg:px-10 text-white overflow-hidden border border-dashed border-neutral-200 dark:border-neutral-700 ">
+    
+     <div className="max-w-6xl w-full flex flex-col lg:flex-row items-start lg:items-center gap-8 md:gap-12">
         
         {/* Left Image Section */}
         <div
           ref={imageRef}
-          className="w-full overflow-hidden "
+          className=" overflow-hidden col-span-1 flex justify-center items-center"
         >
           <img
             src="/person1.png"
             alt="Profile"
-            className="max-w-xl h-full object-cover "
+            className="sm:max-w-lg  object-center"
           />
         </div>
 
         {/* Right Content Section */}
-        <div ref={textRef} className="w-full flex flex-col gap-6 text-center lg:text-left">
+        <div ref={textRef} className="w-full flex flex-col gap-6 text-center lg:text-left col-span-2">
           <div className="flex items-center gap-4 justify-center lg:justify-start">
             <div className="w-px h-10 bg-gray-400"></div>
             <span className="text-lg tracking-widest uppercase text-gray-400">

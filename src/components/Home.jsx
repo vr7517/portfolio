@@ -58,8 +58,9 @@ export default function Home() {
  <section
   ref={sectionRef}
   id="home"
-  className="relative h-screen overflow-hidden text-white"
+  className="relative h-screen overflow-hidden text-[#EFEFE6] "
 >
+  <div className='absolute top-1/2  -left-24 hidden sm:flex rotate-90 bg-[#EFEFE6] text-black p-12'>vivekrajput1924345@gmail.com</div>
   {/* Background */}
   <div className="absolute inset-0  z-0"></div>
   {/* <img
@@ -68,7 +69,7 @@ export default function Home() {
     className="absolute inset-0 object-scale-down w-full h-full opacity-20 pointer-events-none z-0"
   /> */}
 
-  <div className="relative z-10 h-full max-w-6xl mx-auto flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-16 p-6 md:p-8">
+  <div className="relative z-10 h-full max-w-6xl mx-auto flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-16 p-6 md:p-8 border border-gray-300 dark:border-neutral-800">
     
     {/* Social Icons - Left */}
     <div
@@ -98,7 +99,7 @@ export default function Home() {
 
     <button
   ref={buttonRef}
-  className="mt-6 px-6 py-3  border border-black bg-orange-500 text-white rounded-md hover:bg-white hover:text-black transition duration-300"
+  className="mt-6 px-6 py-3  border border-black bg-orange-600 text-white rounded-md hover:bg-white hover:text-black transition duration-300"
 >
   GET IN TOUCH
 </button>

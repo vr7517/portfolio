@@ -51,11 +51,12 @@ export default function Header() {
   }, [])
 
   return (
-    <header className={`bg-white dark:bg-black font-jetbrains sticky top-0 z-50 transition-transform duration-300
+    <header className={`bg-[#EFEFE6] dark:bg-black font-jetbrains sticky top-0 z-50 transition-transform duration-300
+       border border-neutral-200 dark:border-neutral-700 sm:mx-12
       ${showHeader ? 'translate-y-0' : '-translate-y-full'}` }>
       
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
-        <h1 className="text-2xl font-bold text-black dark:text-white">Logo</h1>
+        <h1 className="text-3xl font-extrabold font-serif tracking-widest text-black dark:text-white"><span className="text-orange-600">V</span>iv</h1>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex space-x-6 items-center">
@@ -121,7 +122,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <nav className="md:hidden px-4 pb-4 space-y-2 bg-white dark:bg-gray-900 text-black dark:text-white">
+        <nav className="md:hidden px-4 pb-4 space-y-2 bg-white dark:bg-black text-black dark:text-white">
           {['home', 'about', 'skills', 'projects', 'contact'].map((item) => (
             <a key={item}
               href={`#${item}`}
