@@ -256,7 +256,7 @@ export default function Skills() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="flex items-center justify-center w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-white dark:bg-zinc-900 drop-shadow-xl shadow-2xl"
+              className="flex items-center justify-center w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-white dark:bg-zinc-900 drop-shadow-xl shadow-2xl"
             >
               {selectedItem.icon}
             </motion.div>
