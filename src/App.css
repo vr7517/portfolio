@@ -2,9 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  font-family: 'JetBrains Mono', monospace;
+
+
+@font-face{
+  font-family: 'font1';
+  src:url(../public/fonts/Lausanne-300.woff2);
 }
+@font-face{
+  font-family: 'font2';
+  src:url(../public/fonts/Lausanne-500.woff2);
+}
+
 
 
 .h1 {
