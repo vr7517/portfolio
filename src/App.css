@@ -15,13 +15,7 @@
 
 
 
-.h1 {
-  @apply text-2xl sm:text-3xl md:text-4xl text-gray-800 dark:text-gray-200 font-bold mb-4 leading-snug;
-}
 
-.p{
-  @apply text-left max-w-xl  text-gray-400 dark:text-gray-600 mb-10  text-base sm:text-lg leading-relaxed;
-}
 /* Hide scrollbar for all modern browsers */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;

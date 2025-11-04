@@ -56,7 +56,7 @@ export default function Header() {
       ${showHeader ? 'translate-y-0' : '-translate-y-full'}` }>
       
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
-        <h1 className="text-3xl font-extrabold font-serif tracking-widest text-black dark:text-white"><span className="text-orange-600">V</span>iv</h1>
+        <h1 className="font-[font-2] uppercase text-3xl font-extrabold  tracking-widest text-black dark:text-white"><span className="text-orange-600">V</span>iv</h1>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex space-x-6 items-center">
@@ -101,12 +101,12 @@ export default function Header() {
           {/* Dark Mode Toggle */}
           <div
             onClick={toggleDarkMode}
-            className={`w-12 h-6 flex items-center rounded-full p-1 cursor-pointer transition-colors duration-300 
-              ${darkMode ? 'bg-gray-200' : 'bg-orange'}`}
+            className={`w-12 h-6 flex items-center rounded-full p-1 cursor-pointer transition-colors duration-300 bg-black dark:bg-white
+              ${darkMode ? 'bg-white' : 'bg-orange'}`}
           >
             <div
-              className={`w-4 h-4 rounded-full shadow-md transform duration-300 ease-in-out
-                ${darkMode ? 'translate-x-6 bg-orange' : 'translate-x-0 bg-white'}`}
+              className={`w-4 h-4 rounded-full shadow-md transform duration-300 ease-in-out bg-orange-500
+                ${darkMode ? 'translate-x-6 bg-orange' : 'translate-x-0 bg-orange-600'}`}
             ></div>
           </div>
         </div>

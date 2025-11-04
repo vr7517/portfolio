@@ -111,18 +111,18 @@ export default function Home() {
       <div className="absolute inset-0 z-0"></div>
 
       {/* Content */}
-      <div className="relative z-10 h-screen max-w-6xl mx-auto flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-16 p-6 md:p-8 border border-gray-300 dark:border-neutral-800">
+      <div className="relative z-10 h-screen w-full mx-auto flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-16 p-6 md:p-8 ">
         {/* Social Icons */}
 
-        <div ref={imagePin} className="absolute h-screen w-1/2 opacity-10 top-0 ">
-          <img src="/person1.png" alt="" />
+        <div ref={imagePin} className="absolute h-screen w-1/2 opacity-10 top-0  ">
+          <img className="h-full w-full object-cover" src="/person1.png" alt="" />
         </div>
 
         {/* Center Content */}
-        <div className="relative  w-full h-screen justify-between flex flex-col py-20 max-w-5xl text-center">
+        <div className="relative  w-full h-screen justify-between flex flex-col py-10 max-w-5xl text-center">
           <h1
             ref={titleRef}
-            className="font-[font2] text-black dark:text-white text-[6vw] leading-[6vw] uppercase"
+            className="font-[font1] text-black dark:text-white text-[7vw] leading-[6vw] uppercase"
           >
             Turning Bold Ideas into <br className="hidden sm:block" />  Web Products
           </h1>
@@ -131,17 +131,16 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
             <button
               ref={contactBtnRef}
-              className="px-6 py-3 border border-black bg-orange-600 text-white rounded-full hover:bg-white hover:text-black transition duration-300"
+              className="font-[font1] px-8  pt-2 dark:text-white text-[4vw] leading-[6vw] uppercase border border-black dark:border-white  text-black rounded-full hover:border-orange-600  dark:hover:border-orange-600 dark:hover:text-orange-600 hover:text-orange-600 transition duration-300"
             >
-              GET IN TOUCH
+              Projects
             </button>
-
             <button
               ref={resumeBtnRef}
               onClick={handleResumeClick}
-              className="px-6 py-3 border border-orange-600 text-orange-600 rounded-full hover:bg-orange-600 hover:text-white transition duration-300"
+              className="font-[font1] px-8  pt-2 dark:text-white text-[4vw] leading-[6vw] uppercase border border-black dark:border-white  text-black rounded-full hover:border-orange-600 dark:hover:border-orange-600 dark:hover:text-orange-600 hover:text-orange-600 transition duration-300"
             >
-              VIEW RESUME
+              RESUME
             </button>
           </div>
         </div>

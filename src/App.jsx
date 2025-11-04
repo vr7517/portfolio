@@ -10,7 +10,6 @@ import Contact from "./components/Contact"
 import Marquee from './components/Marquee'
 
 
-
 function App() {
   return (
     <>
@@ -25,7 +24,7 @@ function App() {
           <div className="relative flex-1 overflow-y-auto px-4 md:px-6   scrollbar-hide">
 
 
-            {/* <GsapTest /> */}
+           
             <Home />
 
            <div
