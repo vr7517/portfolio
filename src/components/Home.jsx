@@ -81,6 +81,13 @@ export default function Home() {
     window.open("/resume.pdf", "_blank");
   };
 
+  const handleProjectClick = () => {
+    const projectsSection = document.getElementById("projects");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section ref={sectionRef} id="home" className="relative h-screen overflow-hidden text-[#EFEFE6]">
       <div ref={iconsRef} className="hidden md:flex absolute left-4 bottom-1/4 flex-col items-center text-gray-400 z-20 space-y-4">
@@ -112,7 +119,7 @@ export default function Home() {
             Turning Bold Ideas into <br className="hidden sm:block" />  Web Products
           </h1>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
-            <button ref={contactBtnRef} className="font-[font1] px-8  pt-2 dark:text-white text-[4vw] leading-[6vw] uppercase border border-black dark:border-white  text-black rounded-full hover:border-orange-600  dark:hover:border-orange-600 dark:hover:text-orange-600 hover:text-orange-600 transition duration-300">
+            <button ref={contactBtnRef} onClick={handleProjectClick} className="font-[font1] px-8  pt-2 dark:text-white text-[4vw] leading-[6vw] uppercase border border-black dark:border-white  text-black rounded-full hover:border-orange-600  dark:hover:border-orange-600 dark:hover:text-orange-600 hover:text-orange-600 transition duration-300">
               Projects
             </button>
             <button ref={resumeBtnRef} onClick={handleResumeClick} className="font-[font1] px-8  pt-2 dark:text-white text-[4vw] leading-[6vw] uppercase border border-black dark:border-white  text-black rounded-full hover:border-orange-600 dark:hover:border-orange-600 dark:hover:text-orange-600 hover:text-orange-600 transition duration-300">
