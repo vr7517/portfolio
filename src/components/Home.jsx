@@ -93,10 +93,10 @@ export default function Home() {
         ref={iconsRef}
         className="hidden md:flex absolute left-4 bottom-1/4 flex-col items-center text-gray-400 z-20 space-y-5"
       >
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/vivekrajpoot14/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <FaLinkedinIn className="hover:text-black transition-colors duration-300" />
         </a>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <a href="https://github.com/vr7517" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <FaGithub className="hover:text-black transition-colors duration-300" />
         </a>
         <a href="mailto:vivekrajput1924345@gmail.com" aria-label="Email">
@@ -111,45 +111,45 @@ export default function Home() {
         <div className="w-px h-12 bg-gray-300 opacity-70 mt-6"></div>
       </div>
 
-      <div className="relative z-10 h-full w-full mx-auto flex flex-col justify-center items-center gap-6 px-6 md:px-8 max-w-5xl text-center">
+      <div className="relative z-10 h-full w-full mx-auto flex flex-col justify-center items-center gap-3.5 sm:gap-6 px-5 md:px-8 max-w-5xl text-center">
         {/* Eyebrow */}
-        <span className="inline-flex items-center gap-2 rounded-full border border-gray-300 px-4 py-1 text-xs font-medium uppercase tracking-[0.25em] text-gray-500">
+        <span className="inline-flex items-center gap-2 rounded-full border border-gray-300 px-3 py-1 text-[10px] sm:text-xs font-medium uppercase tracking-[0.2em] sm:tracking-[0.25em] text-gray-500">
           Vivek Rajpoot · 2+ Years Experience
         </span>
 
         <h1
           ref={titleRef}
-          className="font-[font1] text-black text-[10vw] sm:text-[8vw] lg:text-[6.5vw] leading-[1.02] uppercase tracking-tight"
+          className="font-[font1] text-black text-[11vw] sm:text-[8vw] lg:text-[6.5vw] leading-[1.02] uppercase tracking-tight"
         >
           Data Analyst &amp; <br className="hidden sm:block" /> Analytics Engineer
         </h1>
 
         <p
           ref={subRef}
-          className="text-base sm:text-xl text-gray-600 max-w-2xl leading-relaxed"
+          className="text-sm sm:text-xl text-gray-600 max-w-2xl leading-relaxed px-2"
         >
           Transforming raw data into meaningful business insights.
         </p>
 
         <p
           ref={secondaryRef}
-          className="text-sm sm:text-base text-gray-400"
+          className="text-xs sm:text-base text-gray-400"
         >
           Web Development as a secondary specialization.
         </p>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
+        <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-2 sm:mt-4 w-full sm:w-auto px-6 sm:px-0">
           <button
             ref={contactBtnRef}
             onClick={handleProjectClick}
-            className="rounded-full bg-black px-8 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:bg-gray-800 hover:scale-[1.03]"
+            className="rounded-full bg-black px-6 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:bg-gray-800 hover:scale-[1.03]"
           >
             View Projects
           </button>
           <button
             ref={resumeBtnRef}
             onClick={handleResumeClick}
-            className="rounded-full border border-black px-8 py-3 text-sm font-semibold uppercase tracking-wide text-black transition-all duration-300 hover:bg-black hover:text-white hover:scale-[1.03]"
+            className="rounded-full border border-black px-6 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold uppercase tracking-wide text-black transition-all duration-300 hover:bg-black hover:text-white hover:scale-[1.03]"
           >
             Resume
           </button>

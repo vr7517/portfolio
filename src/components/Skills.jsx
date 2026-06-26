@@ -163,34 +163,34 @@ export default function Skills() {
 
   return (
     <section ref={sectionRef} id="skills">
-      <div className="relative min-h-screen flex items-center justify-center sm:mx-8 py-16 px-4 text-black overflow-hidden border border-dashed border-gray-200">
-        <div className="max-w-6xl w-full flex flex-col lg:flex-row items-start lg:items-center gap-12">
+      <div className="relative min-h-screen flex items-center justify-center sm:mx-8 py-12 sm:py-16 px-4 text-black overflow-hidden border border-dashed border-gray-200">
+        <div className="max-w-6xl w-full flex flex-col lg:flex-row items-start lg:items-center gap-8 sm:gap-12">
           {/* Left Side */}
           <div ref={leftRef} className="lg:w-1/2 text-center lg:text-left">
-            <div className="flex items-center gap-4 mb-4 justify-center lg:justify-start">
-              <div className="w-8 h-px bg-black"></div>
-              <span className="text-xs tracking-[0.25em] uppercase text-gray-500">
+            <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4 justify-center lg:justify-start">
+              <div className="w-6 sm:w-8 h-px bg-black"></div>
+              <span className="text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase text-gray-500">
                 Skills
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4 tracking-tight text-black">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-3 sm:mb-4 tracking-tight text-black">
               A data-first <br /> skill set
             </h2>
 
-            <p className="text-gray-600 leading-relaxed mb-8 max-w-md mx-auto lg:mx-0">
+            <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-5 sm:mb-8 max-w-md mx-auto lg:mx-0">
               {current.blurb}
             </p>
 
             {/* Category Tabs */}
-            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+            <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start">
               {categoryKeys.map((key) => {
                 const isActive = activeCategory === key;
                 return (
                   <button
                     key={key}
                     onClick={() => setActiveCategory(key)}
-                    className={`group flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-300
+                    className={`group flex items-center gap-1.5 sm:gap-2 rounded-full border px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold transition-all duration-300
                       ${
                         isActive
                           ? "border-black bg-black text-white"

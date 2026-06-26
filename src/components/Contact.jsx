@@ -13,7 +13,7 @@ import {
 const WHATSAPP_NUMBER = "919754799646";
 
 const socials = [
-  { Icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
+  { Icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/vivekrajpoot14/" },
   { Icon: Github, label: "GitHub", href: "https://github.com" },
   { Icon: Twitter, label: "Twitter", href: "https://twitter.com" },
 ];
@@ -55,26 +55,26 @@ export default function Contact() {
       id="contact"
       className="relative min-h-screen px-4 sm:mx-8 sm:px-6 lg:px-10 text-black overflow-hidden border border-dashed border-gray-200"
     >
-      <div className="max-w-4xl w-full mx-auto py-16 space-y-10">
+      <div className="max-w-4xl w-full mx-auto py-12 sm:py-16 space-y-7 sm:space-y-10">
         {/* Header */}
         <div className="text-center">
-          <p className="text-xs uppercase tracking-[0.25em] text-gray-500">Contact</p>
-          <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight">
+          <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-gray-500">Contact</p>
+          <h2 className="mt-2 sm:mt-3 text-2xl md:text-5xl font-bold tracking-tight">
             Let&apos;s work together
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-gray-600 leading-relaxed">
+          <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-sm sm:text-base text-gray-600 leading-relaxed px-2">
             Have a dashboard to build, data to model, or a tool to ship? Reach out via the form
             below or directly by email or phone.
           </p>
         </div>
 
         {/* Contact Info */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
           {contactInfo.map((info) => {
             const inner = (
-              <div className="flex items-center gap-3 rounded-xl border border-gray-200 px-4 py-4 transition-colors duration-300 hover:border-black">
-                <info.Icon className="h-5 w-5 shrink-0 text-black" />
-                <span className="text-sm text-gray-600 break-all">{info.text}</span>
+              <div className="flex items-center gap-2.5 sm:gap-3 rounded-xl border border-gray-200 px-3.5 sm:px-4 py-3 sm:py-4 transition-colors duration-300 hover:border-black">
+                <info.Icon className="h-4 w-4 sm:h-5 sm:w-5 shrink-0 text-black" />
+                <span className="text-xs sm:text-sm text-gray-600 break-all">{info.text}</span>
               </div>
             );
             return info.href ? (
@@ -107,8 +107,8 @@ export default function Contact() {
         </div>
 
         {/* Contact Form — submits straight to WhatsApp */}
-        <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
-          <div className="flex flex-col md:flex-row gap-5">
+        <form className="flex flex-col gap-4 sm:gap-5" onSubmit={handleSubmit}>
+          <div className="flex flex-col md:flex-row gap-4 sm:gap-5">
             <input
               type="text"
               name="name"
@@ -116,7 +116,7 @@ export default function Contact() {
               onChange={handleChange}
               required
               placeholder="Your Name"
-              className="w-full rounded-md border border-gray-300 bg-transparent px-4 py-3 text-sm text-black placeholder-gray-400 transition focus:border-black focus:outline-none"
+              className="w-full rounded-md border border-gray-300 bg-transparent px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-black placeholder-gray-400 transition focus:border-black focus:outline-none"
             />
             <input
               type="email"
@@ -125,7 +125,7 @@ export default function Contact() {
               onChange={handleChange}
               required
               placeholder="Email Address"
-              className="w-full rounded-md border border-gray-300 bg-transparent px-4 py-3 text-sm text-black placeholder-gray-400 transition focus:border-black focus:outline-none"
+              className="w-full rounded-md border border-gray-300 bg-transparent px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-black placeholder-gray-400 transition focus:border-black focus:outline-none"
             />
           </div>
 
@@ -135,7 +135,7 @@ export default function Contact() {
             value={form.phone}
             onChange={handleChange}
             placeholder="Phone Number"
-            className="w-full rounded-md border border-gray-300 bg-transparent px-4 py-3 text-sm text-black placeholder-gray-400 transition focus:border-black focus:outline-none"
+            className="w-full rounded-md border border-gray-300 bg-transparent px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-black placeholder-gray-400 transition focus:border-black focus:outline-none"
           />
 
           <textarea
@@ -145,14 +145,15 @@ export default function Contact() {
             required
             placeholder="Your Message"
             rows={5}
-            className="w-full rounded-md border border-gray-300 bg-transparent px-4 py-3 text-sm text-black placeholder-gray-400 transition focus:border-black focus:outline-none"
+            className="w-full rounded-md border border-gray-300 bg-transparent px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-black placeholder-gray-400 transition focus:border-black focus:outline-none"
           ></textarea>
 
           <button
             type="submit"
-            className="mx-auto inline-flex items-center justify-center gap-2 rounded-md bg-black px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-gray-800 hover:scale-[1.02]"
+            className="mx-auto inline-flex items-center justify-center gap-2 rounded-md bg-black px-6 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:bg-gray-800 hover:scale-[1.02]"
           >
-            <Send size={18} /> Send via WhatsApp
+            <Send size={16} className="sm:hidden" />
+            <Send size={18} className="hidden sm:inline" /> Send via WhatsApp
           </button>
         </form>
       </div>

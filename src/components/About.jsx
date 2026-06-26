@@ -65,36 +65,36 @@ export default function About() {
       ref={sectionRef}
       className="relative min-h-screen flex items-center justify-center px-4 sm:mx-8 lg:px-10 text-black overflow-hidden border border-dashed border-gray-200"
     >
-      <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center gap-10 md:gap-16 py-16">
+      <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center gap-6 sm:gap-10 md:gap-16 py-12 sm:py-16">
         {/* Left Image */}
         <div
           ref={imageRef}
           className="w-full lg:w-2/5 flex justify-center items-center"
         >
           <div className="relative">
-            <div className="absolute -inset-3 rounded-2xl border border-gray-200" aria-hidden></div>
+            <div className="absolute -inset-2 sm:-inset-3 rounded-2xl border border-gray-200" aria-hidden></div>
             <img
               src="/person1.png"
               alt="Vivek Rajpoot"
-              className="relative w-72 sm:w-96 object-contain rounded-2xl"
+              className="relative w-48 sm:w-96 object-contain rounded-2xl"
             />
           </div>
         </div>
 
         {/* Right Content */}
-        <div ref={textRef} className="w-full lg:w-3/5 flex flex-col gap-6 text-center lg:text-left">
-          <div className="flex items-center gap-4 justify-center lg:justify-start">
-            <div className="w-8 h-px bg-black"></div>
-            <span className="text-xs tracking-[0.25em] uppercase text-gray-500">
+        <div ref={textRef} className="w-full lg:w-3/5 flex flex-col gap-4 sm:gap-6 text-center lg:text-left">
+          <div className="flex items-center gap-3 sm:gap-4 justify-center lg:justify-start">
+            <div className="w-6 sm:w-8 h-px bg-black"></div>
+            <span className="text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase text-gray-500">
               About Me
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
             Turning data into <br className="hidden sm:block" /> decisions that matter
           </h2>
 
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
             I&apos;m <strong className="text-black">Vivek Rajpoot</strong>, a Data Analyst &amp;
             Analytics Engineer with 2+ years of experience turning messy, raw data into clear,
             actionable insights. I design and build interactive{" "}
@@ -104,7 +104,7 @@ export default function About() {
             trustworthy source of truth.
           </p>
 
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
             My work focuses on <strong className="text-black">measurable business impact</strong>:
             automating manual reporting, modeling data for self-service analytics, and surfacing the
             metrics that drive faster, better decisions. Alongside analytics, I bring a solid{" "}
@@ -115,23 +115,23 @@ export default function About() {
           {/* Stats */}
           <div
             ref={statsRef}
-            className="grid grid-cols-3 gap-4 border-y border-gray-200 py-6 mt-2"
+            className="grid grid-cols-3 gap-3 sm:gap-4 border-y border-gray-200 py-4 sm:py-6 mt-1 sm:mt-2"
           >
             {stats.map((s) => (
               <div key={s.label} className="text-center lg:text-left">
-                <div className="text-2xl sm:text-3xl font-bold text-black">{s.value}</div>
-                <div className="text-xs text-gray-500 mt-1 leading-snug">{s.label}</div>
+                <div className="text-xl sm:text-3xl font-bold text-black">{s.value}</div>
+                <div className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1 leading-snug">{s.label}</div>
               </div>
             ))}
           </div>
 
           <div
             ref={buttonsRef}
-            className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4"
+            className="flex flex-row justify-center lg:justify-start gap-3 sm:gap-4"
           >
             <a
               href="#contact"
-              className="rounded-md bg-black px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-gray-800 text-center"
+              className="rounded-md bg-black px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:bg-gray-800 text-center"
             >
               Hire Me
             </a>
@@ -139,7 +139,7 @@ export default function About() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-md border border-gray-400 px-6 py-3 text-sm font-semibold text-black transition-all duration-300 hover:border-black hover:bg-gray-50 text-center"
+              className="rounded-md border border-gray-400 px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-black transition-all duration-300 hover:border-black hover:bg-gray-50 text-center"
             >
               Download CV
             </a>

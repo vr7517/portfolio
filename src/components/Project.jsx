@@ -201,7 +201,7 @@ function ProjectCard({ project, onOpen }) {
     <button
       type="button"
       onClick={() => onOpen(project)}
-      className="project-card group relative flex h-[420px] sm:h-[500px] w-[80vw] max-w-[300px] sm:w-[340px] sm:max-w-none shrink-0 flex-col justify-end overflow-hidden rounded-3xl border border-gray-200 text-left shadow-sm
+      className="project-card group relative flex h-[340px] sm:h-[500px] w-[64vw] max-w-[240px] sm:w-[340px] sm:max-w-none shrink-0 flex-col justify-end overflow-hidden rounded-2xl sm:rounded-3xl border border-gray-200 text-left shadow-sm
                  transition-all duration-500 active:scale-[0.98] hover:-translate-y-2 hover:shadow-2xl"
     >
       {/* Media (kept in full colour) / placeholder for data projects */}
@@ -222,45 +222,45 @@ function ProjectCard({ project, onOpen }) {
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/5 transition-all duration-500 group-hover:from-black" />
 
       {/* Category tag */}
-      <span className="absolute top-4 left-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold text-black backdrop-blur">
+      <span className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 inline-flex items-center gap-1 sm:gap-1.5 rounded-full bg-white/90 px-2 sm:px-3 py-0.5 sm:py-1 text-[9px] sm:text-[11px] font-semibold text-black backdrop-blur">
         {tagIcon(project.tag)}
         {project.tag}
       </span>
 
       {/* Arrow CTA */}
-      <span className="absolute top-4 right-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/40 text-white transition-all duration-300 group-hover:rotate-45 group-hover:bg-white group-hover:text-black">
-        <ArrowUpRight className="h-4 w-4" />
+      <span className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-white/40 text-white transition-all duration-300 group-hover:rotate-45 group-hover:bg-white group-hover:text-black">
+        <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
       </span>
 
       {/* Content */}
-      <div className="relative z-10 p-6 text-white">
-        <div className="mb-3 inline-flex items-center gap-1.5 rounded-md bg-white/15 px-2.5 py-1 text-[11px] font-semibold backdrop-blur">
-          <TrendingUp className="h-3.5 w-3.5" />
+      <div className="relative z-10 p-4 sm:p-6 text-white">
+        <div className="mb-2 sm:mb-3 inline-flex items-center gap-1 sm:gap-1.5 rounded-md bg-white/15 px-2 sm:px-2.5 py-0.5 sm:py-1 text-[9px] sm:text-[11px] font-semibold backdrop-blur">
+          <TrendingUp className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
           {project.metric}
         </div>
 
-        <h3 className="text-2xl font-bold leading-tight">{project.title}</h3>
-        <p className="mt-1 text-xs text-white/60">{project.date}</p>
+        <h3 className="text-lg sm:text-2xl font-bold leading-tight">{project.title}</h3>
+        <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-white/60">{project.date}</p>
 
         {/* Description — always visible on mobile, revealed on hover on desktop */}
-        <div className="mt-3 grid grid-rows-[1fr] opacity-100 transition-all duration-500 ease-out sm:mt-0 sm:grid-rows-[0fr] sm:opacity-0 sm:group-hover:mt-3 sm:group-hover:grid-rows-[1fr] sm:group-hover:opacity-100">
-          <p className="overflow-hidden text-sm leading-relaxed text-white/80 line-clamp-2 sm:line-clamp-3">
+        <div className="mt-2 sm:mt-0 grid grid-rows-[1fr] opacity-100 transition-all duration-500 ease-out sm:grid-rows-[0fr] sm:opacity-0 sm:group-hover:mt-3 sm:group-hover:grid-rows-[1fr] sm:group-hover:opacity-100">
+          <p className="overflow-hidden text-[11px] sm:text-sm leading-relaxed text-white/80 line-clamp-2 sm:line-clamp-3">
             {project.solution}
           </p>
         </div>
 
         {/* Tools */}
-        <div className="mt-4 flex flex-wrap gap-1.5">
+        <div className="mt-2.5 sm:mt-4 flex flex-wrap gap-1 sm:gap-1.5">
           {project.tools.slice(0, 3).map((t) => (
             <span
               key={t}
-              className="rounded-full border border-white/30 bg-white/5 px-2.5 py-0.5 text-[10px] font-medium text-white/90 backdrop-blur"
+              className="rounded-full border border-white/30 bg-white/5 px-2 sm:px-2.5 py-0.5 text-[9px] sm:text-[10px] font-medium text-white/90 backdrop-blur"
             >
               {t}
             </span>
           ))}
           {project.tools.length > 3 && (
-            <span className="rounded-full bg-white px-2.5 py-0.5 text-[10px] font-medium text-black">
+            <span className="rounded-full bg-white px-2 sm:px-2.5 py-0.5 text-[9px] sm:text-[10px] font-medium text-black">
               +{project.tools.length - 3}
             </span>
           )}
@@ -453,33 +453,33 @@ export default function Project() {
       id="projects"
       className="relative min-h-screen px-4 sm:mx-8 sm:px-6 lg:px-10 text-black overflow-hidden border border-dashed border-gray-200"
     >
-      <div className="max-w-6xl mx-auto py-16">
+      <div className="max-w-6xl mx-auto py-12 sm:py-16">
         {/* Section Label */}
-        <div className="flex items-center gap-4 mb-4 justify-center md:justify-start">
-          <div className="w-8 h-px bg-black"></div>
-          <span className="text-xs tracking-[0.25em] uppercase text-gray-500">
+        <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4 justify-center md:justify-start">
+          <div className="w-6 sm:w-8 h-px bg-black"></div>
+          <span className="text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase text-gray-500">
             Projects
           </span>
         </div>
 
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-3 text-center md:text-left">
+        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-2 sm:mb-3 text-center md:text-left">
           Selected work &amp; case studies
         </h2>
 
-        <p className="text-gray-600 leading-relaxed max-w-xl mb-10 text-center md:text-left mx-auto md:mx-0">
+        <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-xl mb-6 sm:mb-10 text-center md:text-left mx-auto md:mx-0">
           From Microsoft Fabric pipelines and Power BI dashboards to full-stack web apps —
           each project pairs a real problem with a measurable outcome.
         </p>
 
         {/* Category Pills */}
-        <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-10">
+        <div className="flex flex-wrap justify-center md:justify-start gap-2 sm:gap-3 mb-6 sm:mb-10">
           {categoryFilters.map((c) => {
             const isActive = activeCat === c.key;
             return (
               <button
                 key={c.key}
                 onClick={() => setActiveCat(c.key)}
-                className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 border
+                className={`rounded-full px-3.5 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold transition-all duration-300 border
                   ${
                     isActive
                       ? "bg-black text-white border-black"

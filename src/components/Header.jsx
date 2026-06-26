@@ -6,7 +6,7 @@ export default function Header() {
   const [lastScrollY, setLastScrollY] = useState(0)
   const [activeSection, setActiveSection] = useState("home")
 
-  const navItems = ['home', 'about', 'skills', 'projects', 'contact']
+  const navItems = ['home', 'about', 'skills', 'projects', 'certifications', 'contact']
 
   const toggleMenu = () => setMenuOpen(!menuOpen)
 
@@ -65,7 +65,7 @@ export default function Header() {
         </a>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex space-x-8 items-center text-sm font-medium">
+        <nav className="hidden md:flex space-x-4 lg:space-x-7 items-center text-sm font-medium">
           {navItems.map((item) => (
             <a
               key={item}
