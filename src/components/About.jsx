@@ -4,51 +4,55 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const stats = [
+  { value: "2+", label: "Years in Analytics" },
+  { value: "15+", label: "Dashboards Shipped" },
+  { value: "60%", label: "Avg. Manual Work Saved" },
+];
+
 export default function About() {
   const sectionRef = useRef(null);
   const imageRef = useRef(null);
   const textRef = useRef(null);
+  const statsRef = useRef(null);
   const buttonsRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Image Animation (slide from left)
       gsap.from(imageRef.current, {
-        x: -100,
+        x: -80,
         opacity: 0,
-        duration: 1.2,
+        duration: 1.1,
         ease: "power3.out",
-        scrollTrigger: {
-          trigger: imageRef.current,
-          start: "top 85%",
-        },
+        scrollTrigger: { trigger: imageRef.current, start: "top 85%" },
       });
 
-      // Text Animation (slide from right)
       gsap.from(textRef.current, {
-        x: 100,
+        x: 80,
         opacity: 0,
-        duration: 1.2,
-        delay: 0.2,
+        duration: 1.1,
+        delay: 0.15,
         ease: "power3.out",
-        scrollTrigger: {
-          trigger: textRef.current,
-          start: "top 85%",
-        },
+        scrollTrigger: { trigger: textRef.current, start: "top 85%" },
       });
 
-      // Buttons Animation (staggered fade-up)
-      gsap.from(buttonsRef.current.children, {
-        y: 40,
+      gsap.from(statsRef.current.children, {
+        y: 30,
         opacity: 0,
-        duration: 0.8,
-        delay: 0.4,
-        stagger: 0.2,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: "power2.out",
+        scrollTrigger: { trigger: statsRef.current, start: "top 90%" },
+      });
+
+      gsap.from(buttonsRef.current.children, {
+        y: 30,
+        opacity: 0,
+        duration: 0.7,
+        delay: 0.2,
+        stagger: 0.15,
         ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: buttonsRef.current,
-          start: "top 90%",
-        },
+        scrollTrigger: { trigger: buttonsRef.current, start: "top 92%" },
       });
     }, sectionRef);
 
@@ -59,49 +63,86 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
-         className="relative min-h-screen flex items-center justify-center text-center  sm:px-4 sm:mx-8  lg:px-10 text-white overflow-hidden border border-dashed border-neutral-200 dark:border-neutral-700 ">
-    
-     <div className="max-w-6xl w-full flex flex-col lg:flex-row items-start lg:items-center gap-8 md:gap-12">
-        
-        {/* Left Image Section */}
+      className="relative min-h-screen flex items-center justify-center px-4 sm:mx-8 lg:px-10 text-black overflow-hidden border border-dashed border-gray-200"
+    >
+      <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center gap-10 md:gap-16 py-16">
+        {/* Left Image */}
         <div
           ref={imageRef}
-          className=" overflow-hidden col-span-1 flex justify-center items-center"
+          className="w-full lg:w-2/5 flex justify-center items-center"
         >
-          <img
-            src="/person1.png"
-            alt="Profile"
-            className="sm:max-w-lg  object-center"
-          />
+          <div className="relative">
+            <div className="absolute -inset-3 rounded-2xl border border-gray-200" aria-hidden></div>
+            <img
+              src="/person1.png"
+              alt="Vivek Rajpoot"
+              className="relative w-72 sm:w-96 object-contain rounded-2xl"
+            />
+          </div>
         </div>
 
-        {/* Right Content Section */}
-        <div ref={textRef} className="w-full flex flex-col gap-6 text-center lg:text-left col-span-2">
+        {/* Right Content */}
+        <div ref={textRef} className="w-full lg:w-3/5 flex flex-col gap-6 text-center lg:text-left">
           <div className="flex items-center gap-4 justify-center lg:justify-start">
-            <div className="w-px h-10 bg-gray-400"></div>
-            <span className="text-lg tracking-widest uppercase text-gray-400">
+            <div className="w-8 h-px bg-black"></div>
+            <span className="text-xs tracking-[0.25em] uppercase text-gray-500">
               About Me
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
-            Let Me Build Your <br /> Next Big Thing!
-          </h1>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
+            Turning data into <br className="hidden sm:block" /> decisions that matter
+          </h2>
 
-          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-            Hi! I’m Vivek Rajpoot, a passionate Full Stack Developer focused on building modern, responsive, and user-friendly web applications. I enjoy crafting clean, scalable solutions using React, Laravel, Tailwind CSS, and MySQL. I thrive on turning ideas into real products with efficient code, team collaboration, and agile practices.
+          <p className="text-gray-600 leading-relaxed">
+            I&apos;m <strong className="text-black">Vivek Rajpoot</strong>, a Data Analyst &amp;
+            Analytics Engineer with 2+ years of experience turning messy, raw data into clear,
+            actionable insights. I design and build interactive{" "}
+            <strong className="text-black">Power BI</strong> dashboards, write performant{" "}
+            <strong className="text-black">SQL</strong>, and engineer end-to-end data pipelines on{" "}
+            <strong className="text-black">Microsoft Fabric</strong> — giving stakeholders a single,
+            trustworthy source of truth.
           </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            My work focuses on <strong className="text-black">measurable business impact</strong>:
+            automating manual reporting, modeling data for self-service analytics, and surfacing the
+            metrics that drive faster, better decisions. Alongside analytics, I bring a solid{" "}
+            <strong className="text-black">web development</strong> background (React &amp; Laravel)
+            as a supporting skill set for building data-driven tools.
+          </p>
+
+          {/* Stats */}
+          <div
+            ref={statsRef}
+            className="grid grid-cols-3 gap-4 border-y border-gray-200 py-6 mt-2"
+          >
+            {stats.map((s) => (
+              <div key={s.label} className="text-center lg:text-left">
+                <div className="text-2xl sm:text-3xl font-bold text-black">{s.value}</div>
+                <div className="text-xs text-gray-500 mt-1 leading-snug">{s.label}</div>
+              </div>
+            ))}
+          </div>
 
           <div
             ref={buttonsRef}
             className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4"
           >
-            <button className="bg-orange text-white px-6 py-2 rounded-md font-semibold transition hover:bg-orange-500">
-              HIRE ME
-            </button>
-            <button className="border border-gray-400 hover:border-orange hover:text-orange text-white px-6 py-2 rounded-md font-semibold transition">
-              DOWNLOAD CV
-            </button>
+            <a
+              href="#contact"
+              className="rounded-md bg-black px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-gray-800 text-center"
+            >
+              Hire Me
+            </a>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md border border-gray-400 px-6 py-3 text-sm font-semibold text-black transition-all duration-300 hover:border-black hover:bg-gray-50 text-center"
+            >
+              Download CV
+            </a>
           </div>
         </div>
       </div>

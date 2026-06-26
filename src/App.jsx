@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Header from './components/Header'
 import Home from './components/Home'
 import './App.css'
@@ -14,14 +13,14 @@ function App() {
   return (
     <>
       <Header />
-      <div className="min-h-screen flex flex-col bg-white dark:bg-black  text-black dark:text-white transition-all duration-300 font-jetbrains-mono">
+      <div className="min-h-screen flex flex-col bg-white text-black font-sans">
         <div className="flex-1 flex flex-col overflow-hidden">
           <div className="relative flex-1 overflow-y-auto px-4 md:px-6   scrollbar-hide">
             <Home />
-            <div className="px-5 py-4 text-gray-900 dark:text-[#EFEFE6] transition-colors duration-300">
-              <Marquee speed={90} gap={60}>
-                <span className="text-lg sm:text-xl font-semibold whitespace-nowrap">
-                  Laravel Developer ⚡ Full-Stack Creator ⚡ Clean & Scalable Code ⚡ Tailwind Enthusiast ⚡ Livewire Expert ⚡ Passion for Design & Motion ⚡ GSAP Animation Lover ⚡ Problem Solver ⚡ Creative Thinker ⚡
+            <div className="px-5 py-4 text-gray-900 transition-colors duration-300">
+              <Marquee speed={70} gap={60}>
+                <span className="text-lg sm:text-xl font-semibold whitespace-nowrap text-gray-800">
+                  Power BI ✦ SQL ✦ Microsoft Fabric ✦ Data Modeling ✦ Python ✦ DAX ✦ ETL Pipelines ✦ Interactive Dashboards ✦ Business Insights ✦ Data Storytelling ✦ Web Development ✦
                 </span>
               </Marquee>
             </div>

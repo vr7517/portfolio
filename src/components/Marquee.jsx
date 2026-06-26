@@ -96,18 +96,18 @@ export default function Marquee({
       {/* gradient masks for edges */}
       <div
         aria-hidden
-        className="absolute inset-y-0 left-0 w-16 pointer-events-none"
+        className="absolute inset-y-0 left-0 w-16 pointer-events-none z-10"
         style={{
           background:
-            "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)",
+            "linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)",
         }}
       />
       <div
         aria-hidden
-        className="absolute inset-y-0 right-0 w-16 pointer-events-none"
+        className="absolute inset-y-0 right-0 w-16 pointer-events-none z-10"
         style={{
           background:
-            "linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)",
+            "linear-gradient(to left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)",
         }}
       />
 

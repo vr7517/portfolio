@@ -13,8 +13,18 @@
   src:url(../public/fonts/Lausanne-500.woff2);
 }
 
-
-
+/* Base typography — modern, readable Inter across the whole site */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.01em;
+}
 
 /* Hide scrollbar for all modern browsers */
 .scrollbar-hide::-webkit-scrollbar {
@@ -24,19 +34,26 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;    /* Firefox */
 }
+
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
   }
 }
 
 .animate-fade-in {
-  animation: fade-in 3s ease-out forwards;
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-fade-in { animation: none; }
 }
 
 

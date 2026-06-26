@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { FaTwitter, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaEnvelope } from "react-icons/fa";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -8,65 +8,60 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
+  const subRef = useRef(null);
+  const secondaryRef = useRef(null);
   const contactBtnRef = useRef(null);
   const resumeBtnRef = useRef(null);
   const iconsRef = useRef(null);
-  const imagePin = useRef(null);
-
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-
-      gsap.to(imagePin.current, {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-          pin: true,
-        },
-        y: -100,
-        ease: "none",
-      });
       // Section fade-in
       gsap.fromTo(
         sectionRef.current,
         { opacity: 0 },
-        { opacity: 1, duration: 1.5, ease: "power2.out" }
+        { opacity: 1, duration: 1.2, ease: "power2.out" }
       );
 
       // Title
       gsap.fromTo(
         titleRef.current,
-        { y: 80, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.2, delay: 0.3, ease: "power3.out" }
+        { y: 60, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, delay: 0.2, ease: "power3.out" }
       );
 
-      // "Get in Touch" button
+      // Subheading
       gsap.fromTo(
-        contactBtnRef.current,
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, delay: 1, ease: "power2.out" }
+        subRef.current,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, delay: 0.5, ease: "power2.out" }
       );
 
-      // "View Resume" button
+      // Secondary line
       gsap.fromTo(
-        resumeBtnRef.current,
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, delay: 1.3, ease: "power2.out" }
+        secondaryRef.current,
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, delay: 0.7, ease: "power2.out" }
       );
 
-      // Icons (stagger)
+      // Buttons
+      gsap.fromTo(
+        [contactBtnRef.current, resumeBtnRef.current],
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, delay: 0.9, stagger: 0.15, ease: "power2.out" }
+      );
+
+      // Social icons (stagger)
       if (iconsRef.current) {
         gsap.fromTo(
           iconsRef.current.children,
-          { x: -30, opacity: 0 },
+          { x: -20, opacity: 0 },
           {
             x: 0,
             opacity: 1,
-            duration: 0.8,
-            delay: 0.4,
-            stagger: 0.2,
+            duration: 0.6,
+            delay: 0.6,
+            stagger: 0.15,
             ease: "back.out(1.7)",
           }
         );
@@ -75,7 +70,6 @@ export default function Home() {
 
     return () => ctx.revert();
   }, []);
-
 
   const handleResumeClick = () => {
     window.open("/resume.pdf", "_blank");
@@ -89,44 +83,76 @@ export default function Home() {
   };
 
   return (
-    <section ref={sectionRef} id="home" className="relative h-screen overflow-hidden text-[#EFEFE6]">
-      <div ref={iconsRef} className="hidden md:flex absolute left-4 bottom-1/4 flex-col items-center text-gray-400 z-20 space-y-4">
-        <a href="#"><FaFacebookF className="hover:text-orange-500 transition" /></a>
-        <a href="#"><FaTwitter className="hover:text-orange-500 transition" /></a>
-        <a href="#"><FaLinkedinIn className="hover:text-orange-500 transition" /></a>
-        <div className="h-12 w-px bg-gray-300 dark:bg-gray-600 opacity-50 mt-2"></div>
+    <section
+      ref={sectionRef}
+      id="home"
+      className="relative h-screen overflow-hidden text-black"
+    >
+      {/* Left social icons */}
+      <div
+        ref={iconsRef}
+        className="hidden md:flex absolute left-4 bottom-1/4 flex-col items-center text-gray-400 z-20 space-y-5"
+      >
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <FaLinkedinIn className="hover:text-black transition-colors duration-300" />
+        </a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <FaGithub className="hover:text-black transition-colors duration-300" />
+        </a>
+        <a href="mailto:vivekrajput1924345@gmail.com" aria-label="Email">
+          <FaEnvelope className="hover:text-black transition-colors duration-300" />
+        </a>
+        <div className="h-12 w-px bg-gray-300 opacity-70 mt-2"></div>
       </div>
 
-
+      {/* Right scroll indicator */}
       <div className="hidden md:flex absolute right-4 bottom-1/4 flex-col items-center z-20">
-        <span className="text-sm tracking-widest text-gray-400 rotate-90">SCROLL</span>
-        <div className="w-px h-12 bg-gray-300 dark:bg-gray-600 opacity-50 mt-6"></div>
+        <span className="text-xs tracking-[0.3em] text-gray-400 rotate-90">SCROLL</span>
+        <div className="w-px h-12 bg-gray-300 opacity-70 mt-6"></div>
       </div>
 
-      <div className="absolute top-1/2 -left-20 hidden sm:flex rotate-90 bg-[#EFEFE6] text-black px-12 py-6">
-        vivekrajput1924345@gmail.com
-      </div>
+      <div className="relative z-10 h-full w-full mx-auto flex flex-col justify-center items-center gap-6 px-6 md:px-8 max-w-5xl text-center">
+        {/* Eyebrow */}
+        <span className="inline-flex items-center gap-2 rounded-full border border-gray-300 px-4 py-1 text-xs font-medium uppercase tracking-[0.25em] text-gray-500">
+          Vivek Rajpoot · 2+ Years Experience
+        </span>
 
-      <div className="absolute inset-0 z-0"></div>
+        <h1
+          ref={titleRef}
+          className="font-[font1] text-black text-[10vw] sm:text-[8vw] lg:text-[6.5vw] leading-[1.02] uppercase tracking-tight"
+        >
+          Data Analyst &amp; <br className="hidden sm:block" /> Analytics Engineer
+        </h1>
 
-      <div className="relative z-10 h-screen w-full mx-auto flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-16 p-6 md:p-8 ">
-        <div ref={imagePin} className="absolute h-screen w-1/2 opacity-10 top-0  ">
-          <img className="h-full w-full object-cover" src="/person1.png" alt="" />
-        </div>
+        <p
+          ref={subRef}
+          className="text-base sm:text-xl text-gray-600 max-w-2xl leading-relaxed"
+        >
+          Transforming raw data into meaningful business insights.
+        </p>
 
-        <div className="relative  w-full h-screen justify-between flex flex-col py-10 max-w-5xl text-center">
-          <h1 ref={titleRef} className="font-[font1] text-black dark:text-white text-[7vw] leading-[6vw] uppercase">
-            Turning Bold Ideas into <br className="hidden sm:block" />  Web Products
-          </h1>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
-            <button ref={contactBtnRef} onClick={handleProjectClick} className="font-[font1] px-8  pt-2 dark:text-white text-[4vw] leading-[6vw] uppercase border border-black dark:border-white  text-black rounded-full hover:border-orange-600  dark:hover:border-orange-600 dark:hover:text-orange-600 hover:text-orange-600 transition duration-300">
-              Projects
-            </button>
-            <button ref={resumeBtnRef} onClick={handleResumeClick} className="font-[font1] px-8  pt-2 dark:text-white text-[4vw] leading-[6vw] uppercase border border-black dark:border-white  text-black rounded-full hover:border-orange-600 dark:hover:border-orange-600 dark:hover:text-orange-600 hover:text-orange-600 transition duration-300">
-              RESUME
-            </button>
-          </div>
+        <p
+          ref={secondaryRef}
+          className="text-sm sm:text-base text-gray-400"
+        >
+          Web Development as a secondary specialization.
+        </p>
 
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
+          <button
+            ref={contactBtnRef}
+            onClick={handleProjectClick}
+            className="rounded-full bg-black px-8 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:bg-gray-800 hover:scale-[1.03]"
+          >
+            View Projects
+          </button>
+          <button
+            ref={resumeBtnRef}
+            onClick={handleResumeClick}
+            className="rounded-full border border-black px-8 py-3 text-sm font-semibold uppercase tracking-wide text-black transition-all duration-300 hover:bg-black hover:text-white hover:scale-[1.03]"
+          >
+            Resume
+          </button>
         </div>
       </div>
     </section>
