@@ -72,7 +72,7 @@ export default function Home() {
   }, []);
 
   const handleResumeClick = () => {
-    window.open("/resume.pdf", "_blank");
+    window.open("/ATS_resume.pdf", "_blank");
   };
 
   const handleProjectClick = () => {

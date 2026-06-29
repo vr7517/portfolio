@@ -85,7 +85,7 @@ export default function Header() {
         {/* CTA + mobile button */}
         <div className="flex items-center gap-3">
           <a
-            href="/resume.pdf"
+            href="/ATS_resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:inline-flex items-center rounded-full border border-black px-5 py-2 text-sm font-semibold text-black transition-all duration-300 hover:bg-black hover:text-white"
@@ -124,7 +124,7 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="/resume.pdf"
+            href="/ATS_resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-2 inline-flex items-center rounded-full border border-black px-5 py-2 text-sm font-semibold text-black"
